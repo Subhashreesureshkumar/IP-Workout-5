@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>JavaScript page</title>
+</head>
+<!-- window status -->
+<body>
+
+    <h2>JavaScript page</h2>
+    <p id="date"></p>
+    <p id="lastModified"></p>
+
+    <script>
+        //prompt
+        var name=prompt("Name:");
+        
+        //pop-up box
+        alert("Welcome to our page "+name+"!!");
+
+        //months
+        var months=["January","February","March","April","May","June","July","August","September","November","December"];
+        
+        //Current date
+        var curDate=new Date();
+        var date=curDate.getDate();
+        var month=months[curDate.getMonth()];
+        var year=curDate.getFullYear();
+        document.getElementById("date").innerHTML="Today's date: "+(month+" "+date+","+year);
+
+        //Last modified date
+        document.getElementById("lastModified").innerHTML="Last Modified date: "+document.lastModified;
+        
+        //status
+        window.statusbar="All power is within you!!";
+    </script>
+</body>
+</html>

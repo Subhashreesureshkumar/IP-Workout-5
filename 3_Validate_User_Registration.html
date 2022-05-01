@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Form Validation</title>
+    <style>
+            label,input{
+                font-family: Times new roman;
+                font-size: 16px;
+            }
+          
+            form{
+                border: 5px solid #000000;
+                padding :3%;
+                align-items: left;
+                
+            }
+           
+            .tocenter{
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                
+            }
+    </style>
+</head>
+<body>
+    <center><h3>Login page</h3></center>
+    
+    <div class="tocenter" >
+        
+        <form name="LoginForm" onsubmit="validate()">
+            <label for="firstname">First Name:</label>
+            <input type="text" name="firstname" id="firstname">
+
+            <br><br>
+
+            <label for="lastname">Last Name:</label>
+            <input type="text" name="lastname" id="lastname">
+
+            <br><br>
+
+            <label for="address">Address:</label><br>
+            <textarea name="address" id="address" cols="40" rows="5"></textarea>
+
+            <br><br>
+
+            <label for="city">City:</label>
+            <input type="text" name="city" id="city">
+
+            <br><br>
+
+            <label for="state">State:</label>
+            <input type="text" name="state" id="state">
+
+            <br><br>
+
+            <label for="country">Country:</label>
+            <input type="text" name="country" id="country">
+
+            <br><br>
+
+            <label for="pincode">Pincode:</label>
+            <input type="text" name="pincode" id="pincode">
+
+            <br><br>
+
+            <label for="username">User Name:</label>
+            <input type="text" name="username" id="username">
+
+            <br><br>
+
+            <label for="password">Password:</label>
+            <input type="text" name="password" id="password">
+
+            <br><br>
+
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email">
+
+            <br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script>
+        function validate()
+        {
+            var firstName=document.forms["LoginForm"]["firstname"].value;
+            var lastName=document.forms["LoginForm"]["lastname"].value;
+            var address=document.forms["LoginForm"]["address"];
+            var city=document.forms["LoginForm"]["city"].value;
+            var state=document.forms["LoginForm"]["state"].value;
+            var country=document.forms["LoginForm"]["country"].value;
+            var pincode=document.forms["LoginForm"]["pincode"].value;
+            var username=document.forms["LoginForm"]["username"].value;
+            var password=document.forms["LoginForm"]["password"].value;
+            var email=document.forms["LoginForm"]["email"].value;
+
+            //check fields are filled or not
+            if(firstName=="")
+            {
+                alert("Enter the firstname");
+                return false;
+            }
+            if(lastName=="")
+            {
+                alert("Enter the lastname");
+                return false;
+            }
+            if(city=="")
+            {
+                alert("Enter the city");
+                return false;
+            }
+            if(country=="")
+            {
+                alert("Enter the country");
+                return false;
+            }
+            if(username=="")
+            {
+                alert("Enter the username");
+                return false;
+            }
+            if(password=="")
+            {
+                alert("Enter the password");
+                return false;
+            }
+
+            //pincode
+            if(pincode.length!=6)
+            { 
+                alert("Pincode should contain 6 digits");
+                return false;
+            }
+
+            //state
+            if(state.length!=2)
+            {
+                alert("State should contain only 2 characters");
+                return false;
+            }
+
+            //mail
+            if(email.length<6 || !email.match(/[a-z0-9]+@[a-z]+.[a-z]{2,5}/g))
+            {
+                alert("Give the correct mail id!!");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Character Search</title>
+    <style>
+            label,input,textarea{
+                font-family: Times new roman;
+                font-size: 16px;
+            }
+          
+            form{
+                border: 5px solid #000000;
+                padding :3%;
+                align-items: left;
+                
+            }
+           
+            .tocenter{
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                
+            }
+    </style>
+</head>
+<body>
+    <center>
+        <h2>Finding number of occurences of a character in the text</h2>    
+    </center>
+    <div class="tocenter">
+        <form name="myForm">
+            <label for="text">Enter the text:</label><br>
+            <textarea name="text" id="text" cols="60" rows="6"></textarea>
+
+            <br><br>
+
+            <label for="character">Enter the character to be searched:</label>
+            <input type="text" id="character">
+
+            <br><br>
+
+            <input type="button" value="Search" onclick="find_Occurence()">
+            <input type="button" value="Clear" onclick="clr()">
+
+            <br><br>
+
+            <label for="occurence">Number of occurences:</label>
+            <input type="text" id="occurence" style="visibility: hidden;">
+        </form>
+    </div>
+    
+    <script>
+        function find_Occurence()
+        {
+            var text=document.forms["myForm"]["text"].value;
+            var character=document.forms["myForm"]["character"].value;
+            const search=new RegExp(character,'g');
+            document.forms["myForm"]["occurence"].value=(text.match(search)==null) ? 0 : text.match(search).length;
+            document.forms["myForm"]["occurence"].style.visibility="initial";
+        }
+
+        function clr()
+        {
+            document.forms["myForm"]["text"].value="";
+            document.forms["myForm"]["search"].value="";
+            document.forms["myForm"]["occurence"].style.visibility="hidden";
+        }
+    </script>
+</body>
+</html>
